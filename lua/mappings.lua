@@ -12,3 +12,7 @@ map("n", "<leader>to", "<cmd>tabnew<CR>",      { desc = "Nueva pestaña" })
 map("n", "<leader>tc", "<cmd>tabclose<CR>",    { desc = "Cerrar pestaña" })
 map("n", "<leader>tn", "<cmd>tabnext<CR>",     { desc = "Pestaña siguiente" })
 map("n", "<leader>tp", "<cmd>tabprevious<CR>", { desc = "Pestaña anterior" })
+
+
+-- LSP
+map("n", "<leader>ca", vim.lsp.buf.code_action, {desc = "LSP code action"})
