@@ -18,10 +18,15 @@ return {
     event = "VeryLazy",
     config = function()
       local null_ls = require "null-ls"
-
+      local formatting = null_ls.builtins.formatting
       null_ls.setup {
         sources = {
-          null_ls.builtins.formatting.black, -- ahora black ya existe porque Mason lo instaló
+          formatting.prettier.with { filetypes = { "json", "jsonc" } },
+          -- o si no usas prettierd:
+
+          -- Python
+          formatting.black.with { filetypes = { "python" } },
+
         },
       }
     end,
