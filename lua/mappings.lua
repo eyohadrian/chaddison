@@ -6,6 +6,7 @@ local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
+map("n", "<C-m>", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle nvim-tree" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 map("n", "<leader>to", "<cmd>tabnew<CR>",      { desc = "Nueva pestaña" })
