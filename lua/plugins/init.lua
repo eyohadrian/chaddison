@@ -26,7 +26,6 @@ return {
 
           -- Python
           formatting.black.with { filetypes = { "python" } },
-
         },
       }
     end,
@@ -59,12 +58,37 @@ return {
   -- { import = "nvchad.blink.lazyspec" },
 
   {
-  	"nvim-treesitter/nvim-treesitter",
-  	opts = {
-  		ensure_installed = {
-  			"vim", "lua", "vimdoc",
-       "html", "css", "python"
-  		},
-  	},
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
+        "python",
+      },
+    },
+  },
+  -- debug
+  {
+    {
+      "mfussenegger/nvim-dap",
+    },
+    {
+      "rcarriga/nvim-dap-ui",
+      dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+    },
+    {
+      "theHamsta/nvim-dap-virtual-text",
+      dependencies = { "mfussenegger/nvim-dap" },
+    },
+    {
+      "mfussenegger/nvim-dap-python",
+      dependencies = { "mfussenegger/nvim-dap" },
+    },
+    {
+      "nvim-neotest/nvim-nio",
+    },
   },
 }
