@@ -91,4 +91,9 @@ return {
       "nvim-neotest/nvim-nio",
     },
   },
+  {
+    "chomosuke/term-edit.nvim",
+    event = "TermOpen",
+    version = "1.*",
+  },
 }
