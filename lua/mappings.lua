@@ -16,6 +16,10 @@ map("n", "<leader>tp", "<cmd>tabprevious<CR>", { desc = "Pestaña anterior" })
 -- Terminal
 map("n", "<leader>tt", "<cmd>terminal<CR>", { desc = "Terminal en buffer completo" })
 
+-- Telescope
+local builtin = require('telescope.builtin')
+map('n', '<leader>fu', builtin.lsp_references, { desc = 'Telescope find references' })
+
 -- LSP
 map("n", "<leader>ca", vim.lsp.buf.code_action, {desc = "LSP code action"})
 
