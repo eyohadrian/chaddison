@@ -4,8 +4,16 @@ return {
     -- event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
-
-  -- These are some examples, uncomment them if you want to see them work!
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = require "configs.gitsigns",
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = function(_, opts)
+      return vim.tbl_deep_extend("force", opts, require("configs.telescope"))
+    end,
+  },
   {
     "neovim/nvim-lspconfig",
     config = function()

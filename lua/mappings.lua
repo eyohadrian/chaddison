@@ -13,12 +13,25 @@ map("n", "<leader>to", "<cmd>tabnew<CR>",      { desc = "Nueva pestaña" })
 map("n", "<leader>tc", "<cmd>tabclose<CR>",    { desc = "Cerrar pestaña" })
 map("n", "<leader>tn", "<cmd>tabnext<CR>",     { desc = "Pestaña siguiente" })
 map("n", "<leader>tp", "<cmd>tabprevious<CR>", { desc = "Pestaña anterior" })
+
 -- Terminal
 map("n", "<leader>tt", "<cmd>terminal<CR>", { desc = "Terminal en buffer completo" })
 
 -- Telescope
 local builtin = require('telescope.builtin')
+local function git_commits_short()
+  builtin.git_commits({
+    git_command = {
+      "git", "log",
+      "--oneline",
+      "--abbrev=8",
+    },
+  })
+end
+
 map('n', '<leader>fu', builtin.lsp_references, { desc = 'Telescope find references' })
+map('n', '<leader>fB', builtin.git_branches, { desc = 'Telescope git branches' })
+map('n', '<leader>fc', git_commits_short, { desc = 'Telescope git commits' })
 
 -- LSP
 map("n", "<leader>ca", vim.lsp.buf.code_action, {desc = "LSP code action"})
@@ -41,3 +54,23 @@ map("n", "<leader>du", function() require("dapui").toggle() end, { desc = "DAP U
 map("n", "<leader>dt", function() require("dap-python").test_method() end, { desc = "Debug Test Method" })
 
 map("n", "<leader>df", function() require("dap-python").test_class() end, { desc = "Debug Test Class" })
+
+
+-- Gitsings
+local gs = require('gitsigns')
+
+vim.keymap.set("n", "]c", gs.next_hunk, {desc = "Next hunk"})
+vim.keymap.set("n", "[c", gs.prev_hunk, {desc = "Prev hunk"})
+
+vim.keymap.set("n", "<leader>gs", gs.stage_hunk, {desc = "Stage hunk"})
+vim.keymap.set("n", "<leader>gr", gs.reset_hunk, {desc = "Reset hunk"})
+vim.keymap.set("n", "<leader>gp", gs.preview_hunk, {desc = "Preview hunk"})
+
+vim.keymap.set("n", "<leader>gS", gs.stage_buffer, {desc = "Stage buffer hunk"})
+vim.keymap.set("n", "<leader>gR", gs.reset_buffer, {desc = "Reset buffer hunk"})
+
+vim.keymap.set("n", "<leader>gb", function()
+  gs.blame_line({ full = true })
+end, {desc = "Blame line"})
+
+vim.keymap.set("n", "<leader>tb", gs.toggle_current_line_blame, {desc = "Toggle current_line_blame"})
