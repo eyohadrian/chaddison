@@ -1,6 +1,5 @@
-local actions = require("telescope.actions")
-local action_state = require("telescope.actions.state")
-
+local actions = require "telescope.actions"
+local action_state = require "telescope.actions.state"
 
 local function telescope_send_to_opencode(prompt_bufnr)
   local picker = action_state.get_current_picker(prompt_bufnr)
@@ -34,7 +33,6 @@ local function telescope_send_to_opencode(prompt_bufnr)
     require("opencode").prompt(table.concat(items, " "))
   end
 end
-
 
 return {
   defaults = {
