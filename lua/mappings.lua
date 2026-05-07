@@ -32,8 +32,9 @@ map('n', '<C-w><', '<cmd>vertical resize -7<cr>', { desc = 'Decrease Window Widt
 map("n", "<leader>tt", "<cmd>terminal<CR>", { desc = "Terminal en buffer completo" })
 
 -- Telescope
--- Expands git commit hash to 8 characters.
 local builtin = require('telescope.builtin')
+
+-- Expands git commit hash to 8 characters.
 local function git_commits_short()
   builtin.git_commits({
     git_command = {
