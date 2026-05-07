@@ -4,20 +4,35 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
+-- Deletes default behaviour from NvChad
+vim.keymap.del("n", "<leader>h")
+vim.keymap.del("n", "<leader>v")
+--
+--
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 map("n", "<C-m>", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle nvim-tree" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
-map("n", "<leader>to", "<cmd>tabnew<CR>",      { desc = "Nueva pestaña" })
-map("n", "<leader>tc", "<cmd>tabclose<CR>",    { desc = "Cerrar pestaña" })
-map("n", "<leader>tn", "<cmd>tabnext<CR>",     { desc = "Pestaña siguiente" })
-map("n", "<leader>tp", "<cmd>tabprevious<CR>", { desc = "Pestaña anterior" })
+map("n", "<leader>to", "<cmd>tabnew<CR>",      { desc = "New tab" })
+map("n", "<leader>tc", "<cmd>tabclose<CR>",    { desc = "Close tab" })
+map("n", "<leader>tn", "<cmd>tabnext<CR>",     { desc = "Next tab" })
+map("n", "<leader>tp", "<cmd>tabprevious<CR>", { desc = "Prev tab" })
+
+
+map({ 'n', 'v' }, 'H', '^', { desc = 'Move to the beginning of the line' })
+map({ 'n', 'v' }, 'L', '$', { desc = 'Move to the end of the line' })
+map('n', '<C-w>+', '<cmd>resize +7<cr>', { desc = 'Increase Window Height', silent = true })
+map('n', '<C-w>-', '<cmd>resize -7<cr>', { desc = 'Decrease Window Height', silent = true })
+map('n', '<C-w>>', '<cmd>vertical resize +7<cr>', { desc = 'Increase Window Width', silent = true })
+map('n', '<C-w><', '<cmd>vertical resize -7<cr>', { desc = 'Decrease Window Width', silent = true })
 
 -- Terminal
 map("n", "<leader>tt", "<cmd>terminal<CR>", { desc = "Terminal en buffer completo" })
 
 -- Telescope
+-- Expands git commit hash to 8 characters.
 local builtin = require('telescope.builtin')
 local function git_commits_short()
   builtin.git_commits({
@@ -62,12 +77,12 @@ local gs = require('gitsigns')
 vim.keymap.set("n", "]c", gs.next_hunk, {desc = "Next hunk"})
 vim.keymap.set("n", "[c", gs.prev_hunk, {desc = "Prev hunk"})
 
-vim.keymap.set("n", "<leader>gs", gs.stage_hunk, {desc = "Stage hunk"})
-vim.keymap.set("n", "<leader>gr", gs.reset_hunk, {desc = "Reset hunk"})
-vim.keymap.set("n", "<leader>gp", gs.preview_hunk, {desc = "Preview hunk"})
+vim.keymap.set("n", "<leader>hs", gs.stage_hunk, {desc = "Stage hunk"})
+vim.keymap.set("n", "<leader>hr", gs.reset_hunk, {desc = "Reset hunk"})
+vim.keymap.set("n", "<leader>hp", gs.preview_hunk, {desc = "Preview hunk"})
 
-vim.keymap.set("n", "<leader>gS", gs.stage_buffer, {desc = "Stage buffer hunk"})
-vim.keymap.set("n", "<leader>gR", gs.reset_buffer, {desc = "Reset buffer hunk"})
+vim.keymap.set("n", "<leader>hS", gs.stage_buffer, {desc = "Stage buffer hunk"})
+vim.keymap.set("n", "<leader>hR", gs.reset_buffer, {desc = "Reset buffer hunk"})
 
 vim.keymap.set("n", "<leader>gb", function()
   gs.blame_line({ full = true })
@@ -84,7 +99,7 @@ vim.keymap.set({ "n", "x" }, "<leader>ox", function()
   require("opencode").select()
 end, { desc = "Execute opencode action" })
 
-vim.keymap.set({ "n", "t" }, "<leader>ot", function()
+vim.keymap.set({"n"}, "<leader>ot", function()
   require("opencode").toggle()
 
 end, { desc = "Toggle opencode" })vim.keymap.set("n", "<leader>ou", function()
@@ -96,4 +111,4 @@ vim.keymap.set("n", "<leader>od", function()
 end, { desc = "Scroll opencode down" })
 
 vim.keymap.set({ "n", "x" }, "go",  function() return require("opencode").operator("@this ") end,        { desc = "Add range to opencode", expr = true })
-vim.keymap.set("n",          "goo", function() return require("opencode").operator("@this ") .. "_" end, { desc = "Add line to opencode", expr = true })
+vim.keymap.set("n", "goo", function() return require("opencode").operator("@this ") .. "_" end, { desc = "Add line to opencode", expr = true })
