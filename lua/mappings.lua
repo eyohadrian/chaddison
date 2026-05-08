@@ -7,6 +7,9 @@ local map = vim.keymap.set
 -- Deletes default behaviour from NvChad
 vim.keymap.del("n", "<leader>h")
 vim.keymap.del("n", "<leader>v")
+
+-- Deletes the copy of the whole file
+vim.keymap.del("n", "<C-c>")
 --
 --
 
