@@ -14,14 +14,16 @@ vim.keymap.del("n", "<leader>v")
 vim.keymap.del("n", "<C-c>")
 vim.keymap.del("n", "<leader>cm")
 vim.keymap.del("n", "<leader>gt")
---
---
---
+
+vim.keymap.set("n", "<leader>mc", "<cmd>delmarks 0-9a-zA-Z<CR>", {
+  desc = "Clear all marks",
+})
+
 vim.keymap.set("n", "<leader>B", "<cmd>%bd|e#|bd#<CR>", {
   desc = "Close all buffers",
 })
 
-map("t", "<ESC>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
+map("t", "<ESC>", "<C-\\><C-N>", { desc = "escape on terminal mode" })
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
