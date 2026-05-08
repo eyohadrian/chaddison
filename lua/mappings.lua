@@ -9,9 +9,17 @@ vim.keymap.del("n", "<leader>h")
 vim.keymap.del("n", "<leader>v")
 
 -- Deletes the copy of the whole file
+-- Would be useful to not just do it in terminal mode
+-- where is on i find it annoying
 vim.keymap.del("n", "<C-c>")
+vim.keymap.del("n", "<leader>cm")
+vim.keymap.del("n", "<leader>gt")
 --
 --
+--
+vim.keymap.set("n", "<leader>B", "<cmd>%bd|e#|bd#<CR>", {
+  desc = "Close all buffers",
+})
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
@@ -49,8 +57,9 @@ local function git_commits_short()
 end
 
 map('n', '<leader>fu', builtin.lsp_references, { desc = 'Telescope find references' })
-map('n', '<leader>fB', builtin.git_branches, { desc = 'Telescope git branches' })
-map('n', '<leader>fc', git_commits_short, { desc = 'Telescope git commits' })
+map('n', '<leader>gB', builtin.git_branches, { desc = 'Telescope git branches' })
+map('n', '<leader>gs', builtin.git_status, { desc = 'Telescope git status' })
+map('n', '<leader>gc', git_commits_short, { desc = 'Telescope git commits' })
 
 -- LSP
 map("n", "<leader>ca", vim.lsp.buf.code_action, {desc = "LSP code action"})
@@ -106,7 +115,9 @@ end, { desc = "Execute opencode action" })
 vim.keymap.set({"n"}, "<leader>ot", function()
   require("opencode").toggle()
 
-end, { desc = "Toggle opencode" })vim.keymap.set("n", "<leader>ou", function()
+end, { desc = "Toggle opencode" })
+
+vim.keymap.set("n", "<leader>ou", function()
   require("opencode").command("session.half.page.up")
 end, { desc = "Scroll opencode up" })
 
