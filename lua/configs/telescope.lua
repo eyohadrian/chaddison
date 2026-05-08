@@ -41,5 +41,6 @@ return {
         ["o"] = telescope_send_to_opencode,
       },
     },
+    file_ignore_patterns = { "^.git/"}
   },
 }

@@ -63,6 +63,10 @@ end
 map('n', '<leader>fu', builtin.lsp_references, { desc = 'Telescope find references' })
 map('n', '<leader>gB', builtin.git_branches, { desc = 'Telescope git branches' })
 map('n', '<leader>gs', builtin.git_status, { desc = 'Telescope git status' })
+map('n', '<leader>fh', function()
+  builtin.find_files {hidden=true}
+end
+, { desc = 'Telescope git status' })
 map('n', '<leader>gc', git_commits_short, { desc = 'Telescope git commits' })
 
 -- LSP
