@@ -37,9 +37,6 @@ end
 return {
   defaults = {
     mappings = {
-      i = {
-        ["o"] = telescope_send_to_opencode,
-      },
       n = {
         ["o"] = telescope_send_to_opencode,
       },
