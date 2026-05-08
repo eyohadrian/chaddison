@@ -21,6 +21,8 @@ vim.keymap.set("n", "<leader>B", "<cmd>%bd|e#|bd#<CR>", {
   desc = "Close all buffers",
 })
 
+map("t", "<ESC>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 map("n", "<C-m>", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle nvim-tree" })

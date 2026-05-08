@@ -73,25 +73,24 @@ return {
     },
   },
   -- debug
+
   {
-    {
-      "mfussenegger/nvim-dap",
-    },
-    {
-      "rcarriga/nvim-dap-ui",
-      dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-    },
-    {
-      "theHamsta/nvim-dap-virtual-text",
-      dependencies = { "mfussenegger/nvim-dap" },
-    },
-    {
-      "mfussenegger/nvim-dap-python",
-      dependencies = { "mfussenegger/nvim-dap" },
-    },
-    {
-      "nvim-neotest/nvim-nio",
-    },
+    "mfussenegger/nvim-dap",
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    dependencies = { "mfussenegger/nvim-dap" },
+  },
+  {
+    "mfussenegger/nvim-dap-python",
+    dependencies = { "mfussenegger/nvim-dap" },
+  },
+  {
+    "nvim-neotest/nvim-nio",
   },
   {
     "chomosuke/term-edit.nvim",
