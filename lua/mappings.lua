@@ -1,19 +1,26 @@
-require "nvchad.mappings"
-
 -- add yours here
 
 local map = vim.keymap.set
 
--- Deletes default behaviour from NvChad
-vim.keymap.del("n", "<leader>h")
-vim.keymap.del("n", "<leader>v")
+-- Misc 
+map("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
+map("i", "<C-e>", "<End>", { desc = "move end of line" })
+map("i", "<C-h>", "<Left>", { desc = "move left" })
+map("i", "<C-l>", "<Right>", { desc = "move right" })
+map("i", "<C-j>", "<Down>", { desc = "move down" })
+map("i", "<C-k>", "<Up>", { desc = "move up" })
 
--- Deletes the copy of the whole file
--- Would be useful to not just do it in terminal mode
--- where is on i find it annoying
-vim.keymap.del("n", "<C-c>")
-vim.keymap.del("n", "<leader>cm")
-vim.keymap.del("n", "<leader>gt")
+map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
+map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
+map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
+map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
+
+map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
+
+map("n", "<C-s>", "<cmd>w<CR>", { desc = "general save file" })
+
+map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "toggle line number" })
+map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "toggle relative number" })
 
 vim.keymap.set("n", "<leader>mc", "<cmd>delmarks 0-9a-zA-Z<CR>", {
   desc = "Clear all marks",
@@ -27,7 +34,6 @@ map("t", "<ESC>", "<C-\\><C-N>", { desc = "escape on terminal mode" })
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
-map("n", "<C-m>", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle nvim-tree" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 map("n", "<leader>to", "<cmd>tabnew<CR>",      { desc = "New tab" })
@@ -42,6 +48,36 @@ map('n', '<C-w>+', '<cmd>resize +7<cr>', { desc = 'Increase Window Height', sile
 map('n', '<C-w>-', '<cmd>resize -7<cr>', { desc = 'Decrease Window Height', silent = true })
 map('n', '<C-w>>', '<cmd>vertical resize +7<cr>', { desc = 'Increase Window Width', silent = true })
 map('n', '<C-w><', '<cmd>vertical resize -7<cr>', { desc = 'Decrease Window Width', silent = true })
+
+map({ "n", "x" }, "<leader>fm", function()
+  require("conform").format { lsp_fallback = true }
+end, { desc = "general format file" })
+
+-- tabufline
+if require("nvconfig").ui.tabufline.enabled then
+  map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })
+
+  map("n", "<tab>", function()
+    require("nvchad.tabufline").next()
+  end, { desc = "buffer goto next" })
+
+  map("n", "<S-tab>", function()
+    require("nvchad.tabufline").prev()
+  end, { desc = "buffer goto prev" })
+
+  map("n", "<leader>x", function()
+    require("nvchad.tabufline").close_buffer()
+  end, { desc = "buffer close" })
+end
+
+-- Comment
+map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
+map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
+
+-- nvimtree
+map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
+map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
+map("n", "<C-m>", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle nvim-tree" })
 
 -- Terminal
 map("n", "<leader>tt", "<cmd>terminal<CR>", { desc = "Terminal en buffer completo" })
@@ -61,16 +97,33 @@ local function git_commits_short()
 end
 
 map('n', '<leader>fu', builtin.lsp_references, { desc = 'Telescope find references' })
+map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "telescope live grep" })
+map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "telescope find buffers" })
+map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "telescope help page" })
+map("n", "<leader>ma", "<cmd>Telescope marks<CR>", { desc = "telescope find marks" })
+map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "telescope find oldfiles" })
+map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "telescope find in current buffer" })
+map("n", "<leader>pt", "<cmd>Telescope terms<CR>", { desc = "telescope pick hidden term" })
 map('n', '<leader>gB', builtin.git_branches, { desc = 'Telescope git branches' })
 map('n', '<leader>gs', builtin.git_status, { desc = 'Telescope git status' })
-map('n', '<leader>fh', function()
-  builtin.find_files {hidden=true}
-end
-, { desc = 'Telescope git status' })
 map('n', '<leader>gc', git_commits_short, { desc = 'Telescope git commits' })
+
+map("n", "<leader>th", function()
+  require("nvchad.themes").open()
+end, { desc = "telescope nvchad themes" })
+
+map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
+map(
+  "n",
+  "<leader>fa",
+  "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
+  { desc = "telescope find all files" }
+)
+
 
 -- LSP
 map("n", "<leader>ca", vim.lsp.buf.code_action, {desc = "LSP code action"})
+map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
 
 -- Debug
 map("n", "<F5>", function() require("dap").continue() end, { desc = "DAP Continue" })
@@ -135,3 +188,11 @@ end, { desc = "Scroll opencode down" })
 
 vim.keymap.set({ "n", "x" }, "go",  function() return require("opencode").operator("@this ") end,        { desc = "Add range to opencode", expr = true })
 vim.keymap.set("n", "goo", function() return require("opencode").operator("@this ") .. "_" end, { desc = "Add line to opencode", expr = true })
+
+
+-- whichkey
+map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
+
+map("n", "<leader>wk", function()
+  vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ")
+end, { desc = "whichkey query lookup" })
