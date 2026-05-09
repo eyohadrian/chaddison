@@ -1,4 +1,4 @@
-local actions = require "telescope.actions"
+dofile(vim.g.base46_cache .. "telescope")
 local action_state = require "telescope.actions.state"
 
 local function telescope_send_to_opencode(prompt_bufnr)
@@ -36,11 +36,24 @@ end
 
 return {
   defaults = {
-    mappings = {
-      n = {
-        ["o"] = telescope_send_to_opencode,
+    file_ignore_patterns = { "^.git/" },
+    prompt_prefix = "   ",
+    selection_caret = " ",
+    entry_prefix = " ",
+    sorting_strategy = "ascending",
+    layout_config = {
+      horizontal = {
+        prompt_position = "top",
+        preview_width = 0.55,
       },
+      width = 0.87,
+      height = 0.80,
     },
-    file_ignore_patterns = { "^.git/"}
+    mappings = {
+      n = { ["q"] = require("telescope.actions").close, ["o"] = telescope_send_to_opencode },
+    },
   },
+
+  extensions_list = { "themes", "terms" },
+  extensions = {},
 }
