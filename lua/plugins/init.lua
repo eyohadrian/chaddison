@@ -1,12 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
-  },
-  {
-    "lewis6991/gitsigns.nvim",
-    opts = require "configs.gitsigns",
   },
   {
     "neovim/nvim-lspconfig",

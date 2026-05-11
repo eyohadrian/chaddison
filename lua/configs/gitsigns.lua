@@ -1,18 +1,20 @@
+dofile(vim.g.base46_cache .. "git")
+
 return {
   signs = {
     add = { text = "┃" },
     change = { text = "┃" },
-    delete = { text = "_" },
+    delete = { text = "󰍵" },
     topdelete = { text = "‾" },
-    changedelete = { text = "~" },
+    changedelete = { text = "󱕖" },
     untracked = { text = "┆" },
   },
   signs_staged = {
     add = { text = "┃" },
     change = { text = "┃" },
-    delete = { text = "_" },
+    delete = { text = "󰍵" },
     topdelete = { text = "‾" },
-    changedelete = { text = "~" },
+    changedelete = { text = "󱕖" },
     untracked = { text = "┆" },
   },
   signs_staged_enable = true,
