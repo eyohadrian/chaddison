@@ -20,8 +20,6 @@ return {
       null_ls.setup {
         sources = {
           formatting.prettier.with { filetypes = { "json", "jsonc" } },
-          -- o si no usas prettierd:
-
           -- Python
           formatting.black.with { filetypes = { "python" } },
         },
@@ -52,8 +50,6 @@ return {
     --   }
     -- end,
   },
-  -- test new blink
-  -- { import = "nvchad.blink.lazyspec" },
 
   {
     "nvim-treesitter/nvim-treesitter",
