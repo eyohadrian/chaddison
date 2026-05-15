@@ -14,7 +14,7 @@ return {
       },
 
       -- autopairing of (){}[] etc
-      -- Thinking in remove it. Sometimes it's annoying 
+      -- Thinking on remove it. Sometimes it's annoying 
       {
         "windwp/nvim-autopairs",
         opts = {
