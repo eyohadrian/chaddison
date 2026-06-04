@@ -30,25 +30,6 @@ return {
     "mg979/vim-visual-multi",
     branch = "master",
     event = "VeryLazy",
-    -- https://github.com/mg979/vim-visual-multi/blob/master/doc/vm-mappings.txt
-    -- config = function()
-    --   -- Desactiva los keymaps por defecto del plugin
-    --   vim.g.VM_default_mappings = 0
-    --
-    --   -- Define tus propios atajos
-    --   vim.g.VM_maps = {
-    --     -- seleccionar siguiente ocurrencia
-    --     ["Find Under"] = "<M-d>",
-    --     ["Find Subword Under"] = "<C-d>",
-    --
-    --     -- añadir cursor arriba/abajo
-    --     ["Add Cursor Down"] = "<M-j>",  -- Alt+j
-    --     ["Add Cursor Up"]   = "<M-k>",  -- Alt+k
-    --
-    --     -- por si quieres entrar al modo de selección manual
-    --     ["Select All"] = "<Leader>A",
-    --   }
-    -- end,
   },
 
   {
