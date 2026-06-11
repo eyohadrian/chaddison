@@ -19,8 +19,9 @@ map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
 
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "general save file" })
 
-map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "toggle line number" })
-map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "toggle relative number" })
+-- Not used, for now lets deprecate it
+-- map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "toggle line number" })
+-- map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "toggle relative number" })
 
 vim.keymap.set("n", "<leader>mc", "<cmd>delmarks 0-9a-zA-Z<CR>", {
   desc = "Clear all marks",
@@ -187,6 +188,11 @@ end, { desc = "Scroll opencode down" })
 vim.keymap.set({ "n", "x" }, "go",  function() return require("opencode").operator("@this ") end,        { desc = "Add range to opencode", expr = true })
 vim.keymap.set("n", "goo", function() return require("opencode").operator("@this ") .. "_" end, { desc = "Add line to opencode", expr = true })
 
+-- Obsidian
+--
+
+map("n", "<leader>nf", "<cmd>Obsidian links<CR>", { desc = "Show links"})
+map("n", "<leader>nb", "<cmd>Obsidian backlinks<CR>", { desc = "Show backlinks"})
 
 -- whichkey
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })

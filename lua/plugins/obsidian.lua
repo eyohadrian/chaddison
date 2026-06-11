@@ -7,13 +7,18 @@ return {
   opts = {
     legacy_commands = false,
     workspaces = {
+      -- {
+      --   name = "MenteCobre",
+      --   path = "~/MenteCobre",
+      -- },
       {
-        name = "MenteCobre",
-        path = "~/adrian.asensio.bdn@gmail.com - Google Drive/My Drive/MenteCobre",
+        name = "kepano-obsidian-main",
+        path = "~/Downloads/kepano-obsidian-main",
       },
     },
     picker = {
       name = "telescope.nvim",
     },
+    ui = {enable = false}
   },
 }
