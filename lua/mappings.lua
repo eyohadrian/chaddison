@@ -189,8 +189,6 @@ vim.keymap.set({ "n", "x" }, "go",  function() return require("opencode").operat
 vim.keymap.set("n", "goo", function() return require("opencode").operator("@this ") .. "_" end, { desc = "Add line to opencode", expr = true })
 
 -- Obsidian
---
-
 map("n", "<leader>nf", "<cmd>Obsidian links<CR>", { desc = "Show links"})
 map("n", "<leader>nb", "<cmd>Obsidian backlinks<CR>", { desc = "Show backlinks"})
 
