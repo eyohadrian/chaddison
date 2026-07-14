@@ -1,7 +1,6 @@
 return {
-  -- "obsidian-nvim/obsidian.nvim",
-  -- version = "*", -- use latest release, remove to use latest commit
-  dir = "~/Documents/programming/obsidian.nvim/",
+  "obsidian-nvim/obsidian.nvim",
+  version = "*",
   event = "VeryLazy",
   ---@module 'obsidian'
   ---@type obsidian.config
