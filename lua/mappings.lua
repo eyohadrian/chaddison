@@ -192,7 +192,7 @@ vim.keymap.set("n", "goo", function() return require("opencode").operator("@this
 map("n", "<leader>nf", "<cmd>Obsidian links<CR>", { desc = "Show links"})
 map("n", "<leader>nb", "<cmd>Obsidian backlinks<CR>", { desc = "Show backlinks"})
 map("n", "<leader>nn", "<cmd>Obsidian new<CR>", { desc = "New Note"})
-map("n", "<leader>nt", "<cmd>Obsidian new_from_template<CR>", { desc = "New Note"})
+map("n", "<leader>nt", "<cmd>Obsidian new_from_template<CR>", { desc = "New Note from template"})
 
 -- whichkey
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
