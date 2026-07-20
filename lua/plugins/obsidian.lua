@@ -13,14 +13,14 @@ return {
       template = vim.NIL,
     },
     workspaces = {
-      {
-        name = "MenteCobre",
-        path = "~/MenteCobre",
-        overrides = {
-          new_notes_location = "notes_subdir",
-          notes_subdir = "_WIP/",
-        },
-      },
+      -- {
+      --   name = "MenteCobre",
+      --   path = "~/MenteCobre",
+      --   overrides = {
+      --     new_notes_location = "notes_subdir",
+      --     notes_subdir = "_WIP/",
+      --   },
+      -- },
       {
         name = "kepano-obsidian-main",
         path = "~/Downloads/kepano-obsidian-main",
