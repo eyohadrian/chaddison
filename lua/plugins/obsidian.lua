@@ -12,24 +12,16 @@ return {
     note = {
       template = vim.NIL,
     },
+    note_id_func = function(title)
+      return title
+    end,
     workspaces = {
-      -- {
-      --   name = "MenteCobre",
-      --   path = "~/MenteCobre",
-      --   overrides = {
-      --     new_notes_location = "notes_subdir",
-      --     notes_subdir = "_WIP/",
-      --   },
-      -- },
       {
-        name = "kepano-obsidian-main",
-        path = "~/Downloads/kepano-obsidian-main",
+        name = "MenteCobre",
+        path = "~/MenteCobre",
         overrides = {
           new_notes_location = "notes_subdir",
-          notes_subdir = "Notes/",
-          templates = {
-            folder = "Templates/",
-          },
+          notes_subdir = "_WIP/",
         },
       },
     },
