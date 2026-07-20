@@ -27,30 +27,6 @@ return {
     },
   },
   config = function()
-    ---@type opencode.Opts
-    vim.g.opencode_opts = {
-      server = {
-        port = nil,
-        start = function()
-          require("opencode.terminal").open("opencode --port", {
-            split = "right",
-            width = math.floor(vim.o.columns * 0.35),
-          })
-        end,
-        stop = function()
-          require("opencode.terminal").close()
-        end,
-        toggle = function()
-          require("opencode.terminal").toggle("opencode --port", {
-            split = "right",
-            width = math.floor(vim.o.columns * 0.35),
-          })
-        end,
-      },
-    }
-
     vim.o.autoread = true -- Required for `opts.events.reload`
-
-    -- Recommended/example keymaps
   end,
 }

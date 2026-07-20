@@ -171,12 +171,15 @@ end, { desc = "Ask opencode" })
 vim.keymap.set({ "n", "x" }, "<leader>ox", function()
   require("opencode").select()
 end, { desc = "Execute opencode action" })
-
-vim.keymap.set({"n"}, "<leader>ot", function()
-  require("opencode").toggle()
-
+vim.keymap.set({ "n", "t" }, "<leader>ot", function()
+  require("snacks.terminal").toggle("opencode --port", {
+  win = {
+    position = "right",
+    width = 0.35,
+    enter = false,
+  },
+})
 end, { desc = "Toggle opencode" })
-
 vim.keymap.set("n", "<leader>ou", function()
   require("opencode").command("session.half.page.up")
 end, { desc = "Scroll opencode up" })
