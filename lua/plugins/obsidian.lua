@@ -25,6 +25,17 @@ return {
         },
       },
     },
+    daily_notes = {
+      folder = "Daily",
+      date_format = "%Y-%m-%d-daily-note",
+      template = "daily.md",
+    },
+
+    templates = {
+      folder = "Templates",
+      date_format = "YYYY-MM-DD",
+      time_format = "HH:mm",
+    },
     picker = {
       name = "telescope.nvim",
     },

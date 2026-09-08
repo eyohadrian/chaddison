@@ -199,6 +199,7 @@ map("n", "<leader>nf", "<cmd>Obsidian follow_link<CR>", { desc = "Follow Link"})
 map("n", "<leader>nb", "<cmd>Obsidian backlinks<CR>", { desc = "Show backlinks"})
 map("n", "<leader>nn", "<cmd>Obsidian new<CR>", { desc = "New Note"})
 map("n", "<leader>nt", "<cmd>Obsidian new_from_template<CR>", { desc = "New Note from template"})
+map("n", "<leader>nd", "<cmd>Obsidian dailies<CR>", { desc = "New Daily note"})
 
 -- whichkey
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
