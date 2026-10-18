@@ -7,6 +7,7 @@ local options = {
     python = { "ruff_fix", "black" },
     cpp = { "clang_format" },
     c = { "clang_format" },
+    go = { "goimports", "gofmt" },
     css = { "prettier" },
     html = { "prettier" },
   },

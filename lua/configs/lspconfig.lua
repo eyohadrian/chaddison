@@ -1,6 +1,6 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls", "clangd", "lua_ls" }
+local servers = { "html", "cssls", "clangd", "lua_ls", "gopls"}
 vim.lsp.enable(servers)
 
 -- Auto find .venv in buffer project 

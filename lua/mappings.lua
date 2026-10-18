@@ -18,16 +18,14 @@ map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
 
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "general save file" })
+map({ "n", "v" }, "<Up>", "3k")
+map({ "n", "v" }, "<Down>", "3j")
 
--- Not used, for now lets deprecate it
--- map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "toggle line number" })
--- map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "toggle relative number" })
-
-vim.keymap.set("n", "<leader>mc", "<cmd>delmarks 0-9a-zA-Z<CR>", {
+map("n", "<leader>mc", "<cmd>delmarks 0-9a-zA-Z<CR>", {
   desc = "Clear all marks",
 })
 
-vim.keymap.set("n", "<leader>B", "<cmd>%bd|e#|bd#<CR>", {
+map("n", "<leader>B", "<cmd>%bd|e#|bd#<CR>", {
   desc = "Close all buffers",
 })
 
@@ -147,31 +145,31 @@ map("n", "<leader>df", function() require("dap-python").test_class() end, { desc
 -- Gitsings
 local gs = require('gitsigns')
 
-vim.keymap.set("n", "]c", gs.next_hunk, {desc = "Next hunk"})
-vim.keymap.set("n", "[c", gs.prev_hunk, {desc = "Prev hunk"})
+map("n", "]c", gs.next_hunk, {desc = "Next hunk"})
+map("n", "[c", gs.prev_hunk, {desc = "Prev hunk"})
 
-vim.keymap.set("n", "<leader>hs", gs.stage_hunk, {desc = "Stage hunk"})
-vim.keymap.set("n", "<leader>hr", gs.reset_hunk, {desc = "Reset hunk"})
-vim.keymap.set("n", "<leader>hp", gs.preview_hunk, {desc = "Preview hunk"})
+map("n", "<leader>hs", gs.stage_hunk, {desc = "Stage hunk"})
+map("n", "<leader>hr", gs.reset_hunk, {desc = "Reset hunk"})
+map("n", "<leader>hp", gs.preview_hunk, {desc = "Preview hunk"})
 
-vim.keymap.set("n", "<leader>hS", gs.stage_buffer, {desc = "Stage buffer hunk"})
-vim.keymap.set("n", "<leader>hR", gs.reset_buffer, {desc = "Reset buffer hunk"})
+map("n", "<leader>hS", gs.stage_buffer, {desc = "Stage buffer hunk"})
+map("n", "<leader>hR", gs.reset_buffer, {desc = "Reset buffer hunk"})
 
-vim.keymap.set("n", "<leader>gb", function()
+map("n", "<leader>gb", function()
   gs.blame_line({ full = true })
 end, {desc = "Blame line"})
 
-vim.keymap.set("n", "<leader>tb", gs.toggle_current_line_blame, {desc = "Toggle current_line_blame"})
+map("n", "<leader>tb", gs.toggle_current_line_blame, {desc = "Toggle current_line_blame"})
 
 -- opencode.nvim
-vim.keymap.set({ "n", "x" }, "<leader>oa", function()
+map({ "n", "x" }, "<leader>oa", function()
   require("opencode").ask("@this: ", { submit = true })
 end, { desc = "Ask opencode" })
 
-vim.keymap.set({ "n", "x" }, "<leader>ox", function()
+map({ "n", "x" }, "<leader>ox", function()
   require("opencode").select()
 end, { desc = "Execute opencode action" })
-vim.keymap.set({ "n", "t" }, "<leader>ot", function()
+map({ "n", "t" }, "<leader>ot", function()
   require("snacks.terminal").toggle("opencode --port", {
   win = {
     position = "right",
@@ -180,16 +178,16 @@ vim.keymap.set({ "n", "t" }, "<leader>ot", function()
   },
 })
 end, { desc = "Toggle opencode" })
-vim.keymap.set("n", "<leader>ou", function()
+map("n", "<leader>ou", function()
   require("opencode").command("session.half.page.up")
 end, { desc = "Scroll opencode up" })
 
-vim.keymap.set("n", "<leader>od", function()
+map("n", "<leader>od", function()
   require("opencode").command("session.half.page.down")
 end, { desc = "Scroll opencode down" })
 
-vim.keymap.set({ "n", "x" }, "go",  function() return require("opencode").operator("@this ") end,        { desc = "Add range to opencode", expr = true })
-vim.keymap.set("n", "goo", function() return require("opencode").operator("@this ") .. "_" end, { desc = "Add line to opencode", expr = true })
+map({ "n", "x" }, "go",  function() return require("opencode").operator("@this ") end,        { desc = "Add range to opencode", expr = true })
+map("n", "goo", function() return require("opencode").operator("@this ") .. "_" end, { desc = "Add line to opencode", expr = true })
 
 -- Obsidian
 map("n", "<leader>nl", function ()
