@@ -169,7 +169,7 @@ end, { desc = "Ask opencode" })
 map({ "n", "x" }, "<leader>ox", function()
   require("opencode").select()
 end, { desc = "Execute opencode action" })
-map({ "n", "t" }, "<leader>ot", function()
+map({ "n" }, "<leader>ot", function()
   require("snacks.terminal").toggle("opencode --port", {
   win = {
     position = "right",
