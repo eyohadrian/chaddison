@@ -45,8 +45,8 @@ map({ 'n', 'v' }, 'H', '^', { desc = 'Move to the beginning of the line' })
 map({ 'n', 'v' }, 'L', '$', { desc = 'Move to the end of the line' })
 map('n', '<C-w>+', '<cmd>resize +7<cr>', { desc = 'Increase Window Height', silent = true })
 map('n', '<C-w>-', '<cmd>resize -7<cr>', { desc = 'Decrease Window Height', silent = true })
-map('n', '<C-w>>', '<cmd>vertical resize +7<cr>', { desc = 'Increase Window Width', silent = true })
-map('n', '<C-w><', '<cmd>vertical resize -7<cr>', { desc = 'Decrease Window Width', silent = true })
+map('n', '<C-w><', '<cmd>vertical resize +7<cr>', { desc = 'Increase Window Width', silent = true })
+map('n', '<C-w>>', '<cmd>vertical resize -7<cr>', { desc = 'Decrease Window Width', silent = true })
 
 map({ "n", "x" }, "<leader>fm", function()
   require("conform").format { lsp_fallback = true }
@@ -170,7 +170,7 @@ map({ "n", "x" }, "<leader>ox", function()
   require("opencode").select()
 end, { desc = "Execute opencode action" })
 map({ "n" }, "<leader>ot", function()
-  require("snacks.terminal").toggle("opencode --port", {
+  require("snacks.terminal").toggle("opencode", {
   win = {
     position = "right",
     width = 0.35,
