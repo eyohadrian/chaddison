@@ -33,12 +33,14 @@ return {
   },
 
   {
+
     "nvim-treesitter/nvim-treesitter",
-    event = { "BufReadPost", "BufNewFile" },
-    cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
-    build = ":TSUpdate | TSInstallAll",
-    opts = function()
-      return require "configs.treesitter"
+    branch = "main",
+    lazy = false,
+    build = ":TSUpdate",
+
+    config = function()
+      require "configs.treesitter"
     end,
   },
   {
